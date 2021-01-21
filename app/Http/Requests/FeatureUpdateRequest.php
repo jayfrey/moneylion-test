@@ -32,11 +32,6 @@ class FeatureUpdateRequest extends FormRequest
         ];
     }
 
-    // public function response(array $errors)
-    // {
-    //     return response([],304);
-    // }
-
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response([],304));
