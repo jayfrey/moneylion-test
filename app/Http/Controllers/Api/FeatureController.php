@@ -45,7 +45,6 @@ class FeatureController extends Controller
      */
     public function show(Request $request)
     {
-        // dd($request->query());
         $request = $request->query();
         $response = $this->userFeatureService->getAccess($request);
         return response([
