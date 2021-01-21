@@ -64,7 +64,7 @@ class FeatureController extends Controller
     {
         $request = $request->all();
         $this->userFeatureService->update($request);
-        return response([],200);
+        return response('',200);
     }
 
     /**
