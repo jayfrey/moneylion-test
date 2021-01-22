@@ -26,8 +26,8 @@ class FeatureUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            "featureName" => "required|max:255",
-            "email" => "required|email",
+            "featureName" => "required|max:255|exists:features,name",
+            "email" => "required|email|exists:users,email",
             "enable" => "required|boolean"
         ];
     }
