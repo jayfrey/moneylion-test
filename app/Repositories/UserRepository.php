@@ -13,8 +13,8 @@ class UserRepository
         $this->model = $model;
     }
 
-    public function save($data)
+    public function getAll()
     {
-        //
+        return $this->model::all();
     }
 }

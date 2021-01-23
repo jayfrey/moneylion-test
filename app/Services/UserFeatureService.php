@@ -20,6 +20,20 @@ class UserFeatureService
 
     public function getAccess($data)
     {
-        return $this->userFeatureRepo->getAccess($data);
+        $response = $this->userFeatureRepo->getAccess($data);
+
+        if(!is_null($response)){
+            $return = [
+                'status' => 1,
+                'canAccess' => $response->access ? true : false,
+            ];
+        } else {
+            $return = [
+                'status' => 0,
+                "message" => __('user-feature.notexist'),
+            ];
+        }
+
+        return $return;
     }
 }
