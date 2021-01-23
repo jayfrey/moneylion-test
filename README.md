@@ -7,14 +7,14 @@
 
 ### Installation
 
-Install the dependencies and devDependencies.
+Install the dependencies.
 
 ```sh
 $ cd moneylion-test
 $ composer install
 ```
 
-Laravel Configurations
+Laravel Configurations.
 
 ```sh
 $ sudo chmod -R 777 bootstrap/cache storage/
