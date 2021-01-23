@@ -46,10 +46,16 @@ class FeatureController extends Controller
     public function show(Request $request)
     {
         $request = $request->query();
-        $response = $this->userFeatureService->getAccess($request);
-        return response([
-                'canAccess' => $response->access ? true : false,
-            ],200);
+        $response  = $this->userFeatureService->getAccess($request);
+        $data = \Arr::except($response, 'status');
+
+        if($response['status']){
+            $return = response($data,200);
+        } else {            
+            $return = response($data,400);
+        }
+
+        return $return ;
     }
 
     /**s
