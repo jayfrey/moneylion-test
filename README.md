@@ -2,9 +2,12 @@
 
 ### Tech Stack
 
-* [Laravel](https://laravel.com) - web application framework with expressive, elegant syntax.
+* [Laravel](https://laravel.com) - web application framework with expressive, elegant syntax
 * [Docker](https://www.docker.com/) - an open platform for developing, shipping, and running applications
+* [MySQL](https://www.mysql.com/) - an open-source relational database management system
 
+Other Libraries
+* [Eloquent Model Generator](https://github.com/krlove/eloquent-model-generator) - a tool based on Code Generator for generating Eloquent models
 ### Installation
 
 Install the dependencies.
