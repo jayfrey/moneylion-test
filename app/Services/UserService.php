@@ -13,8 +13,21 @@ class UserService
         $this->userRepo = $userRepo;
     }
 
-    public function save($data)
+    public function getAll()
     {
-        //
+    	$response = $this->userRepo->getAll();
+
+    	if($response->count() > 0){
+            $return = [
+                'status' => 1,
+                'data' => $response->toArray(),
+            ];
+        } else {
+            $return = [
+                'status' => 0,
+                "message" => __('user.empty'),
+            ];
+        }
+        return $return;
     }
 }

@@ -13,8 +13,21 @@ class FeatureService
         $this->featureRepo = $featureRepo;
     }
 
-    public function save($data)
+    public function getAll()
     {
-        //
+    	$response = $this->featureRepo->getAll();
+
+    	if($response->count() > 0){
+            $return = [
+                'status' => 1,
+                'data' => $response->toArray(),
+            ];
+        } else {
+            $return = [
+                'status' => 0,
+                "message" => __('feature.empty'),
+            ];
+        }
+        return $return;
     }
 }

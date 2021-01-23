@@ -3,47 +3,50 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\FeatureShowRequest;
 use App\Http\Requests\FeatureUpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Services\FeatureService;
 use App\Services\UserFeatureService;
 
 class FeatureController extends Controller
 {
     private $featureService; 
+    private $userFeatureService; 
 
-    public function __construct(UserFeatureService $userFeatureService)
+    public function __construct(FeatureService $featureService, UserFeatureService $userFeatureService)
     {
+        $this->featureService = $featureService;
         $this->userFeatureService = $userFeatureService;
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Get all feature.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function index()
     {
-        //
+        $response  = $this->featureService->getAll();
+        $data = \Arr::except($response, 'status');
+
+        if($response['status']){
+            $return = response($data,200);
+        } else {            
+            $return = response($data,400);
+        }
+
+        return $return;
     }
 
     /**
-     * Display the specified resource.
+     * Get specified resource.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(FeatureShowRequest $request)
     {
         $request = $request->query();
         $response  = $this->userFeatureService->getAccess($request);
@@ -55,14 +58,13 @@ class FeatureController extends Controller
             $return = response($data,400);
         }
 
-        return $return ;
+        return $return;
     }
 
-    /**s
+    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\Http\Requests\FeatureUpdateRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function update(FeatureUpdateRequest $request)
@@ -70,16 +72,5 @@ class FeatureController extends Controller
         $request = $request->all();
         $this->userFeatureService->update($request);
         return response('',200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

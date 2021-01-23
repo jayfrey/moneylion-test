@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get("feature", "\App\Http\Controllers\Api\FeatureController@show");
+Route::get("user/all", "\App\Http\Controllers\Api\UserController@index");
+Route::get("feature/all", "\App\Http\Controllers\Api\FeatureController@index");
+Route::get("feature/{featureName?}{email?}", "\App\Http\Controllers\Api\FeatureController@show");
 Route::post("feature", "\App\Http\Controllers\Api\FeatureController@update");
