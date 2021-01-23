@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::group(["middleware"=>["client"]], function(){
-
 	Route::get("feature", "\App\Http\Controllers\Api\FeatureController@show");
 	Route::post("feature", "\App\Http\Controllers\Api\FeatureController@update");
 });

@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get("feature", "\App\Http\Controllers\Api\FeatureController@show");
+Route::post("feature", "\App\Http\Controllers\Api\FeatureController@update");
