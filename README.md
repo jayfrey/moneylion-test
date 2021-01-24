@@ -37,7 +37,7 @@ $ sudo service nginx stop; sudo service apache2 stop; sudo service mysql stop;
 $ sail up
 ```
 
-Create neccetables and seed sample data.
+Create tables and seed sample data.
 ```sh
 $ sail artisan migrate
 $ sail artisan db:seed
