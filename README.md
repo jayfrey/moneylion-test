@@ -60,5 +60,14 @@ With Oauth
 * **GET /api/feature/all**
 * **GET /api/user/all**
 
+### Configuration
+```sh
+Domain: localhost:80
+
+MySQL Credential
+Username: root
+Password: 1234
+```
+
 ### Test with Postman
 Import the collection [here](https://github.com/jayfrey/moneylion-test/blob/dev/Take-Home-Test.postman_collection.json)
