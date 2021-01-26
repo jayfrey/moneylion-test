@@ -31,10 +31,4 @@ class FeatureUpdateRequest extends FormRequest
             "enable" => "required|boolean"
         ];
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response([],304));
-    }
-
 }
