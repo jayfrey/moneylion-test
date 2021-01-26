@@ -37,7 +37,7 @@ $ sudo service nginx stop; sudo service apache2 stop; sudo service mysql stop;
 $ sail up
 ```
 
-Create neccetables and seed sample data.
+Create tables and seed sample data.
 ```sh
 $ sail artisan migrate
 $ sail artisan db:seed
@@ -59,6 +59,15 @@ With Oauth
 * **POST /api/feature**
 * **GET /api/feature/all**
 * **GET /api/user/all**
+
+### Configuration
+```sh
+Domain: localhost:80
+
+MySQL Credential
+Username: root
+Password: 1234
+```
 
 ### Test with Postman
 Import the collection [here](https://github.com/jayfrey/moneylion-test/blob/dev/Take-Home-Test.postman_collection.json)
